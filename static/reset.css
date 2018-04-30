@@ -1,0 +1,157 @@
+/* 清除默认样式 */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+:focus {
+	outline: 1;
+}
+
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary { 
+    display:block;
+}
+
+ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    border:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+    text-decoration: none;
+    color: #333;
+}
+a:focus {
+    color: #ff0000;
+}
+
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted #000;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+/* 自定义样式 */
+
+.block {
+    height: 18px;
+    background-color: #f3f5f7;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.good {
+    background-color: rgba(0, 160, 220, .2);
+    color: #4d555f;
+}
+.bad {
+    background-color: rgba(77, 85, 93, .2);
+    color: #4d555f;
+}
+
+.order {
+    background-color: #aaa;
+    color: #f3f5f7;
+}
+
+.goodActive {
+    color: #fff;
+    background-color: #00a9dc;
+}
+
+.badActive {
+    color: #fff;
+    background-color: #4d555d;
+}
+
+/* icon样式 */
+.el-icon-arrow-left,.icon-jia,.icon-jian {
+    color: #00a0dc;
+}
+.icon-jia:active, .icon-jian:active {
+    color: #ff0000;
+}
+
+/* 动画效果 */
+.drop-enter-active {
+    transition: all .5s ease;
+  }
+  .drop-leave-active {
+    transition: all .3s ease;
+  }
+  .drop-enter {
+    transform: translateY(500px);
+  }
+  .drop-leave-active {
+    transform: translateY(500px);
+  }
