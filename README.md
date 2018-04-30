@@ -1,4 +1,4 @@
-#[线上访问地址](http://www.xuguobin.club/projects/elm/index.html)
+# [线上访问地址](http://www.xuguobin.club/projects/elm/index.html)
 
 注意：
 
@@ -9,14 +9,14 @@
 
 -------
 
-###技术栈
+## 技术栈
 
  * 前端部分
 	vuejs，vuex，axios，element-ui，webpack
  * 后台部分
 	koa2，mysql
 
-###安装和运行
+## 安装和运行
 
  * 后台部分
 	安装依赖
@@ -32,17 +32,18 @@
 
 写的不好，欢迎star和fork。
 
-###项目更新
+## 项目更新
 
  * 第二次更新（2018 4月21日）
 		将axios操作抽离成单独的app.js文件
  * 第三次更新（2018 4月21日）
  		提交了后台代码
+ * 第四次更新（2018 4月30日
+    优化了后台结构
 
-###项目结构
+## 项目结构
 
-<pre>
-
+```
 ├── README.md           
 ├── build              // 构建服务和webpack配置
 ├── config             // 项目不同环境的配置
@@ -52,16 +53,17 @@
 ├── server             // 项目后台
 │   ├── api            // api操作
 │   ├── db             // 与数据库交互
-│   ├── index.js       // 后台入口文件
+│   ├── routes          // 后台路由
+│   ├── index.js       // 后台入口文件
 │   └── package.json   // 项目配置文件
+|   
 │
 ├── src                // 生产目录
 │   ├── api            // axios操作
-│   ├── components     // 组件
+│   ├── components     // 组件 
 │   ├── router         // 路由
 │   ├── store          // vuex状态管理器
-│	├── App.vue        // 首页
+│	  ├── App.vue        // 首页
 │   └── main.js        // Webpack 预编译入口
 │     
-
-</pre>
+```
