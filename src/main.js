@@ -9,10 +9,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 
 import store from '@/store'
-import api from '@/api'
 
 Vue.config.productionTip = false
-Vue.prototype.api = api; 
 
 /* eslint-disable no-new */
 new Vue({

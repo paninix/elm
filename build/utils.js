@@ -9,7 +9,7 @@ exports.assetsPath = function (_path) {
     ? config.build.assetsSubDirectory
     : config.dev.assetsSubDirectory
 
-  return path.posix.join(assetsSubDirectory, _path)
+  return path.posix.join(assetsSubDirectory, _path) //path.posix解决跨平台
 }
 
 exports.cssLoaders = function (options) {

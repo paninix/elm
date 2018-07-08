@@ -1,0 +1,24 @@
+<div id="rate">
+    <h2>你的五星好评是我进步的动力</h2>
+    <el-row>
+        <el-col :span=8>
+            <span>星级</span>
+        </el-col>
+        <el-col :span=12 :offset=4>
+            <el-rate v-model="rating.score" :colors="['#99A9BF', '#F7BA2A', '#FF9900']"></el-rate>
+        </el-col>
+    </el-row>
+    <el-row>
+        <el-col :span=8>
+            <span style="line-height:28px">送达时间</span>
+        </el-col>
+        <el-col :span=12 :offset=4>
+            <el-input v-model="rating.deliveryTime" size="mini"></el-input>
+        </el-col>
+    </el-row>
+    <el-row>
+        <el-input type="textarea" :autosize="{ minRows: 2, maxRows: 4}" placeholder="给个五星好评哦" v-model="rating.text">
+        </el-input>
+    </el-row>
+    <el-button type="primary" @click="submitRating">提交评价</el-button>
+</div>

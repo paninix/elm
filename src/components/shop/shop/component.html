@@ -1,0 +1,53 @@
+<div id="shop">
+    <div class="shop-title">
+        <el-rate v-model="seller.foodScore" disabled>
+        </el-rate>
+        <h1>{{seller.name}}</h1>
+        <span>({{seller.ratingCount}}) 月售{{seller.sellCount}}单</span>
+    </div>
+    <div class="shop-intro">
+        <el-row>
+            <el-col :span="8">
+                <div>起送价</div>
+                <span>{{seller.minPrice}}</span>元
+            </el-col>
+            <el-col :span="8">
+                <div>商家配送</div>
+                <span>{{seller.deliveryPrice}}</span>元
+            </el-col>
+            <el-col :span="8">
+                <div>平均配送时间</div>
+                <span>{{seller.deliveryTime}}</span>分钟
+            </el-col>
+        </el-row>
+    </div>
+    <div class="block"></div>
+    <div class="shop-public">
+        <h2>公告与活动</h2>
+        <p>{{seller.bulletin}}</p>
+        <ul>
+            <li v-for="(support,index) in seller.supports" :key="index">
+                <i class="icon iconfont icon-zhengpinbaozhang"></i>
+                <span>{{support.description}}</span>
+            </li>
+        </ul>
+    </div>
+    <div class="block"></div>
+    <div class="shop-img">
+        <h2>商家实景</h2>
+        <ul>
+            <li v-for="(pic,index) in seller.pics" :key="index">
+                <img :src="pic.picSrc">
+            </li>
+        </ul>
+    </div>
+    <div class="block"></div>
+    <div class="shop-infor">
+        <h2>商家信息</h2>
+        <ul>
+            <li v-for="(info,index) in seller.infos" :key="index">
+                <span>{{info.info}}</span>
+            </li>
+        </ul>
+    </div>
+</div>

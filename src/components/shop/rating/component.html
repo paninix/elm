@@ -1,0 +1,59 @@
+<div id="rating">
+    <el-row>
+        <el-col :span=9>
+            <div class="rating-total">
+                <h1>{{seller.score}}</h1>
+                <div>综合评分</div>
+                <div>高于周边商家{{seller.rankRate}}%</div>
+            </div>
+        </el-col>
+        <el-col :span=15>
+            <div class="rating-all">
+                <div>
+                    <span>服务态度</span>
+                    <el-rate v-model="seller.serviceScore" disabled show-score text-color="#ff9900" score-template="{value}">
+                    </el-rate>
+                </div>
+                <div>
+                    <span>商品质量</span>
+                    <el-rate v-model="seller.foodScore" disabled show-score text-color="#ff9900" score-template="{value}">
+                    </el-rate>
+                </div>
+                <div>
+                    <span>送达时间</span>
+                    <div>{{seller.deliveryTime}}分钟</div>
+                </div>
+            </div>
+        </el-col>
+    </el-row>
+    <div class="block"></div>
+    <div class="rating-content">
+        <div class="rating-content-head">
+            <span @click="getRatings('0')" :class="{good:true,goodActive:isActive === '0'}">全部</span>
+            <span @click="getRatings('1')" :class="{good:true,goodActive:isActive === '1'}">推荐</span>
+            <span @click="getRatings('-1')" :class="{bad:true,badActive:isActive === '-1'}">吐槽</span>
+        </div>
+        <div class="rating-content-text">
+            <ul>
+                <li v-for="(rating,index) in ratings" :key="index">
+                    <div class="rating-content-img">
+                        <img :src="rating.avatar">
+                    </div>
+                    <div class="rating-content-info">
+                        <div class="rating-content-info-1">
+                            <span>{{rating.nick}}</span>
+                            <span>{{rating.rateTime}}</span>
+                        </div>
+                        <div class="rating-content-info-2">
+                            <span>{{rating.score}}分</span>
+                            <span>{{rating.deliveryTime}}分钟送达</span>
+                        </div>
+                        <div class="rating-content-info-3">
+                            {{rating.text}}
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

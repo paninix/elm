@@ -1,0 +1,34 @@
+<div id="cart">
+    <div class="cart-top" v-show="isShowCart">
+        <div>
+            <span>购物车</span>
+            <span @click="cleanCart">清空</span>
+        </div>
+        <ul>
+            <li v-for="(food,index) in cartFoods" :key="index">
+                <h3>{{food.name}}</h3>
+                <span>￥{{food.total}}</span>
+                <span>
+                        <i class="icon iconfont icon-jian" @click="subFood(food)"></i>
+                        &nbsp;{{food.count}}&nbsp;
+                        <i class="icon iconfont icon-jia" @click="addFood(food)"></i>
+                    </span>
+            </li>
+        </ul>
+    </div>
+    <div class="cart-bottom">
+        <div class="cart-left">
+            <i class="icon iconfont icon-31gouwuche" v-if="totalMoney <= 0" @click="isShowCart = !isShowCart"></i>
+            <i class="icon iconfont icon-31gouwuchexuanzhong" v-else @click="isShowCart = !isShowCart"></i>
+            <span>￥{{totalMoney}}</span>
+            <span>另需配送费 ￥4元</span>
+        </div>
+        <div class="cart-right" v-if="shortMoney > 0">
+            <span>还差 ￥{{shortMoney}}元 起送</span>
+        </div>
+        <div class="cart-right" v-else style="background-color:#00b43c;color:#fff">
+            <span><router-link to="/account">去结算</router-link></span>
+        </div>
+    </div>
+    <div class="cart-mask" v-show="isShowCart"></div>
+</div>

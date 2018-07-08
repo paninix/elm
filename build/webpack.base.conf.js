@@ -5,13 +5,13 @@ const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve (dir) {
-  return path.join(__dirname, '..', dir)
+  return path.join(__dirname, '..', dir)   // 根目录/dir
 }
 
 
 
 module.exports = {
-  context: path.resolve(__dirname, '../'),
+  context: path.resolve(__dirname, '../'), //运行环境的上下文 根目录/
   entry: {
     app: './src/main.js'
   },
@@ -23,7 +23,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json'], //引入模块时可不带扩展
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
@@ -68,6 +68,15 @@ module.exports = {
       {
         test: /\.less$/,
         loader: "style-loader!css-loader!less-loader"
+      },
+      {
+        test: /\.html$/,
+        use: [{
+            loader: 'html-loader',
+            options: {
+                minimize: true
+            }
+        }]
       }
     ]
   },
