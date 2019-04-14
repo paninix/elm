@@ -1,4 +1,9 @@
-#[线上访问地址](http://www.xuguobin.club/projects/elm/index.html)
+# 注
+  * 这个版本是我大三时候写的，很多命名都不规范，目录结构也非常的混乱，git提交的版本也很混乱。虽然最近想要重新重构一下项目，曾经重构过一次。但是总感觉  缝缝补补很不痛快，正好我最近也想做一个VueJS来复习一下VueJS，所以打算重新将elm写过一遍。
+  * 目前只打算重写前端部分，有时间再考虑重写后台的koa2部分 
+  * [正在重写的git地址](https://github.com/The-Never/elm2)
+
+# [线上访问地址](http://www.xuguobin.club/elm/index.html)
 
 ## @copy elm@2.1-dev开发版本
 
@@ -12,6 +17,7 @@
 -------
 
 ### 技术栈
+
 
  * 前端部分
 	vuejs，vuex，axios，element-ui，webpack
@@ -47,6 +53,7 @@
 
 <pre>
 
+```
 ├── README.md           
 ├── build              // 构建服务和webpack配置
 ├── config             // 项目不同环境的配置
@@ -56,8 +63,10 @@
 ├── server             // 项目后台
 │   ├── api            // api操作
 │   ├── db             // 与数据库交互
-│   ├── index.js       // 后台入口文件
+│   ├── routes          // 后台路由
+│   ├── index.js       // 后台入口文件
 │   └── package.json   // 项目配置文件
+|   
 │
 ├── src                // 生产目录
 │   └── axios           // axios操作
@@ -79,8 +88,7 @@
 |   |  
 │   ├── router         // 路由
 │   ├── store          // vuex状态管理器
-│	   ├── App.vue        // 首页
+│	  ├── App.vue        // 首页
 │   └── main.js        // Webpack 预编译入口
 │     
-
-</pre>
+```
