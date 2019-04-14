@@ -8,13 +8,13 @@ export default Base.extend({
     },
     methods: {
         getSeller: function() {
-            this.sellerCache.getSellerAll({
-                success:res => this.seller = res
+            SellerCache.getSellerAll()
+            .then((res)=>{
+                this.seller = res;
             })
         }
     },
     created: function() {
-        this.sellerCache = new SellerCache()
         this.getSeller();
     }
 })

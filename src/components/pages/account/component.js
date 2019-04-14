@@ -32,37 +32,34 @@ export default Base.extend({
                 'orderType': 1,
                 'price': this.payMoney,
             };
-            this.userCache.submitOrder({
-                data:JSON.stringify(order),
-                success: res => {
-                    this.$message({
-                        message: res,
-                        type: 'success'
-                    });
-                    this.$router.push('/admin');
-                },
-                fail: err => {
-                    this.$message({
-                        message: err,
-                        type: 'warning'
-                    });
-                }
-            })
+            UserCache.submitOrder(JSON.stringify(order))
+            .then((res)=>{
+                this.$message({
+                    message: res,
+                    type: 'success'
+                });
+                this.$router.push('/admin');
+            }).catch((err)=>{
+                this.$message({
+                    message: err,
+                    type: 'warning'
+                });
+            });
         },
         getUSer: function() {
-            this.userCache.getUser({
-                success: res => this.user = res
+            UserCache.getUser()
+            .then((res)=>{
+                this.user = res;
             })
         },
         getSeller: function() {
-            this.sellerCache.getSeller({
-                success: res => this.seller = res
+            SellerCache.getSeller()
+            .then((res)=>{
+                this.seller = res;
             })
         }
     },
     created: function() {
-        this.userCache = new UserCache()
-        this.sellerCache = new SellerCache()
         this.getUSer();
         this.getSeller();
     }

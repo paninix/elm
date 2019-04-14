@@ -14,9 +14,10 @@ export default Base.extend({
   },
   methods: {
     getGood: function() {
-      this.goodCache.getGoods({
-        success: res=>this.goods = res
-      })
+      GoodCache.getGoods()
+      .then((res)=>{
+        this.goods = res;
+      });
     },
     addFood: function(food) {
       this.$refs[food.foodId][0].style.display = "block";
@@ -28,7 +29,6 @@ export default Base.extend({
     }
   },
   created: function() {
-    this.goodCache = new GoodCache() 
     this.getGood();
   }
 })

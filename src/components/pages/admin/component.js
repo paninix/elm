@@ -1,5 +1,4 @@
 import Base from '@/base/base.vue'
-
 import UserCache from '@/axios/user/cache'
 export default Base.extend({
     data() {
@@ -22,37 +21,35 @@ export default Base.extend({
             });
         },
         getUserInfo: function() {
-            this.userCache.getUser({
-                success: res => this.user = res
+            UserCache.getUser()
+            .then((res)=>{
+                this.user = res;
             })
         },
         getOrders: function(type) {
             this.isActive = type;
-            this.userCache.getOrders({
-                data: type,
-                success: res => this.orders = res
+            UserCache.getOrders(type)
+            .then((res)=>{
+                this.orders = res;
             })
         },
         confirmOrder: function(orderId) {
-            this.userCache.confirmOrder({
-                success: res => {
-                    this.$message({
-                        message: res.data.data,
-                        type: 'success'
-                    });
-                    this.getOrders('2');
-                },
-                fail: res => {
-                    this.$message({
-                        message: res.data.data,
-                        type: 'warning'
-                    });
-                }
-            })
+            UserCache.confirmOrder(orderId)
+            .then((res)=>{
+                this.$message({
+                    message: res,
+                    type: 'success'
+                });
+                this.getOrders('2');
+            }).catch((err)=>{
+                this.$message({
+                    message: err,
+                    type: 'warning'
+                });
+            });
         }
     },
     created: function() {
-        this.userCache = new UserCache()
         this.getUserInfo();
         this.getOrders('1');
     }

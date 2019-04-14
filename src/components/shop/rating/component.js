@@ -12,19 +12,19 @@ export default Base.extend({
     methods: {
       getRatings: function(type) {
         this.isActive = type;
-        this.sellerCache.getRatings({
-          data:type,
-          success:res => this.ratings = res
+        SellerCache.getRatings(type)
+        .then((res)=>{
+          this.ratings = res;
         })
       },
       getSeller: function() {
-        this.sellerCache.getSeller({
-          success:res => this.seller = res
+        SellerCache.getSeller()
+        .then((res)=>{
+          this.seller = res;
         })
       }
     },
     created: function() {
-      this.sellerCache = new SellerCache() 
       this.getRatings('0');
       this.getSeller();
     }

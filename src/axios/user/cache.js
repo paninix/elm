@@ -1,42 +1,32 @@
-import BaseCache from '../base/base'
-import config from './config'
+import sendRequest from '../base';
 const CACHE_KEY = 'user_cache_key'
 
-export default class UserCache extends BaseCache {
-	constructor () {
-		super()
-		this.settingKey = CACHE_KEY
-	}
-
-	init () {
-		this.doFlushSetting(CACHE_KEY, config)
-	}
-
+export default  {
 	getUser(options) {
-		this.sendRequest('user-getUser',options)
-	}
+		return sendRequest(CACHE_KEY, 'user-getUser',options)
+	},
 
 	getOrders(options) {
-		this.sendRequest('user-getOrders',options)
-	}
+		return sendRequest(CACHE_KEY, 'user-getOrders',options)
+	},
 
 	getRatings(options) {
-		this.sendRequest('user-getRatings',options)
-	}
+		return sendRequest(CACHE_KEY, 'user-getRatings',options)
+	},
 
 	submitOrder(options) {
-		this.sendRequest('user-submitOrder',options)
-	}
+		return sendRequest(CACHE_KEY, 'user-submitOrder',options)
+	},
 
 	confirmOrder(options) {
-		this.sendRequest('user-confirmOrder',options)
-	}
+		return sendRequest(CACHE_KEY, 'user-confirmOrder',options)
+	},
 
 	submitRating(options) {
-		this.sendRequest('user-submitRating',options)
-	}
+		return sendRequest(CACHE_KEY, 'user-submitRating',options)
+	},
 
 	userLogin(options) {
-		this.sendRequest('user-userLogin',options)
+		return sendRequest(CACHE_KEY, 'user-userLogin',options)
 	}
 }

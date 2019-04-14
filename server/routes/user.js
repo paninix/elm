@@ -5,7 +5,6 @@ const router = new Router();
 
 router
 .post('/login',async(ctx)=>{
-	console.log(1111);
 	let user = ctx.request.body;
 	let userId;
 	//进行登录验证

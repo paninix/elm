@@ -15,9 +15,9 @@ export default Base.extend({
     methods: {
         getGood: function () {
             let foodId = this.$route.query.id;
-            this.goodCache.getGood({
-                data:foodId,
-                success: res => this.food = res
+            GoodCache.getGood(foodId)
+            .then((res)=>{
+                this.food = res;
             })
         },
         goBack: function () {
@@ -30,7 +30,6 @@ export default Base.extend({
         }
     },
     created: function () {
-        this.goodCache = new GoodCache()
         this.getGood();
     }
 })
