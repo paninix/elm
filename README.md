@@ -68,8 +68,9 @@
 │
 ├── src                // 生产目录
 │   └── axios           // axios操作
-|         ├──base       // axios模板
-|         |    ├──base.js     //axios基类
+|         ├──index.js   // axios配置表
+|         ├──base       // axios公共部分
+|         |    ├──index.js    //公共方法
 |         |    └──setting.js  //状态码
 |         └── user
 |               ├──cache.js     //请求函数
