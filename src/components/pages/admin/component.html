@@ -1,0 +1,51 @@
+<div id="admin">
+    <div class="admin-back" @click="goBack">
+        <i class="el-icon-arrow-left"></i>
+    </div>
+    <div class="admin-quit" @click="quit">
+        注销
+    </div>
+    <div class="admin-title">
+        <h1>{{user.nick}}</h1>
+        <img :src="user.headSrc">
+        <i></i>
+    </div>
+    <div class="admin-infor">
+        <div>
+            <span>地址</span>
+            <span>{{user.address}}</span>
+        </div>
+        <div>
+            <span>余额</span>
+            <span>￥{{user.account}}</span>
+        </div>
+    </div>
+    <div class="admin-order">
+        <span @click="getOrders(1)" :class="{order:true,goodActive:isActive === 1}">
+            <i class="icon iconfont icon-daifahuo"></i>
+            当前订单
+        </span>
+        <span @click="getOrders(2)" :class="{order:true,goodActive:isActive === 2}">
+            <i class="icon iconfont icon-quanbudingdan"></i>
+            待评价订单
+        </span>
+        <span @click="getOrders(3)" :class="{order:true,goodActive:isActive === 3}">
+            <i class="icon iconfont icon-quanbudingdan"></i>
+            完成订单
+        </span>
+    </div>
+    <div class="block"></div>
+    <div class="admin-order-content">
+        <ul>
+            <li v-for="(order,index) in orders" :key="index">
+                <span>{{order.orderTime}}</span>
+                <span>￥{{order.price}}</span>
+                <span v-if="order.orderType === 1" @click="confirmOrder(order.orderId)">确认送达</span>
+                <span v-else-if="order.orderType === 2">
+                    <router-link :to="{path:'/rate',query: {id:order.orderId}}">评价</router-link>
+                </span>
+                <span v-else>已评价</span>
+            </li>
+        </ul>
+    </div>
+</div>

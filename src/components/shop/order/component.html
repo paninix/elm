@@ -1,0 +1,37 @@
+<div id="order">
+    <el-row>
+      <el-col :span="6">
+        <div class="order-type">
+          <ul>
+            <li v-for="(type,index) in goods" :key="index">
+              <a :href="'#'+index">{{type.name}}</a>
+            </li>
+          </ul>
+        </div>
+      </el-col>
+      <el-col :span="18">
+        <div class="order-good">
+          <ul>
+            <li v-for="(type,index) in goods" :key="index" :id="index">
+              <h2>{{type.name}}</h2>
+              <ul>
+                <router-link tag="li" :to="{path:'/detail',query: {id:food.foodId}}" v-for="(food,index) in type.foods" :key="index">
+                  <div>
+                    <img :src="food.image">
+                  </div>
+                  <div>
+                    <h3>{{food.name}}</h3>
+                    <p>月售{{food.sellCount}}份 好评率{{food.rating}}%</p>
+                    <span>￥{{food.price}}</span>
+                  </div>
+                  <i class="icon iconfont icon-jia" @click.prevent="addFood(food)"></i>
+                  <i class="icon iconfont icon-jian" @click.prevent="subFood(food)" :ref="food.foodId"></i>
+                </router-link>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </el-col>
+    </el-row>
+    <cart></cart>
+  </div>

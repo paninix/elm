@@ -1,0 +1,23 @@
+<div id="detail" transition="showDetail">
+    <div class="detail-img">
+        <img :src="food.image">
+    </div>
+    <div class="detail-infor">
+        <h1>{{food.name}}</h1>
+        <p>月售{{food.sellCount}} 好评率{{food.rating}}%</p>
+        <span>￥{{food.price}}</span>
+        <div>
+            <el-button type="primary" round size="small" @click="addFood(food)">加入购物车</el-button>
+        </div>
+    </div>
+    <div class="detail-intro">
+        <h2>商品介绍</h2>
+        <p>{{food.info}}</p>
+    </div>
+    <div class="detail-rating">
+    </div>
+    <div class="detail-back" @click="goBack">
+        <i class="el-icon-arrow-left"></i>
+    </div>
+    <cart></cart>
+</div>

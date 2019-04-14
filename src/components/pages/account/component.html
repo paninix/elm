@@ -1,0 +1,49 @@
+<div id="account">
+    <div class="account-back" @click="goBack">
+        <i class="el-icon-arrow-left"></i>
+    </div>
+    <div class="account-address">
+        <div>{{user.address}}</div>
+        <span>{{user.phone}}</span>
+    </div>
+    <div class="block"></div>
+    <div class="account-food">
+        <div class="account-food-shop">
+            <div>
+                <img :src="seller.avatar">
+            </div>
+            <span>{{seller.name}}</span>
+        </div>
+        <ul>
+            <li v-for="(food,index) in orderFood" :key="index">
+                <img :src="food.image">
+                <span>{{food.name}}</span>
+                <span>× {{food.count}}</span>
+                <span>￥{{food.total}}</span>
+            </li>
+        </ul>
+    </div>
+    <div class="block"></div>
+    <div class="account-content">
+        <div>
+            <span>备注</span>
+            <span>口味，偏好等要求</span>
+        </div>
+        <div>
+            <span>餐具数量</span>
+            <span>未选择</span>
+        </div>
+        <div>
+            <span>发票</span>
+            <span>该商家不支持开发票</span>
+        </div>
+        <div>
+            <span>满减优惠</span>
+            <span>满28减5</span>
+        </div>
+    </div>
+    <div class="account-pay">
+        <span>合计 ￥{{payMoney}}</span>
+        <span @click="submitOrder">提交订单</span>
+    </div>
+</div>

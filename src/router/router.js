@@ -1,17 +1,3 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-
-import Index from '@/components/shop/index'
-import Order from '@/components/shop/order'
-import Rating from '@/components/shop/rating'
-import Shop from '@/components/shop/shop'
-
-import Admin from '@/components/pages/admin'
-import Detail from '@/components/pages/detail'
-import Account from '@/components/pages/account'
-import Login from '@/components/pages/login'
-import Rate from '@/components/pages/rate'
-
 export default [
     {
       path: '/',
@@ -19,27 +5,27 @@ export default [
     },
     {
       path: '/login',
-      component: Login
+      component: resolve => require(['@/components/pages/login/ui'],resolve)
     },
     {
       path: '/admin',
-      component: Admin
+      component: resolve => require(['@/components/pages/admin/ui'],resolve)
     },
     {
       path: '/detail',
-      component: Detail
+      component: resolve => require(['@/components/pages/detail/ui'],resolve)
     },
     {
       path: '/account',
-      component: Account
+      component: resolve => require(['@/components/pages/account/ui'],resolve)
     },
     {
       path: '/rate',
-      component: Rate
+      component: resolve => require(['@/components/pages/rate/ui'],resolve)
     },
     {
       path: '/shop',
-      component: Index,
+      component: resolve => require(['@/components/shop/index/ui'],resolve),
       children: [
         {
           path: '/',
@@ -47,15 +33,15 @@ export default [
         },
         {
           path: 'order',
-          component: Order
+          component: resolve => require(['@/components/shop/order/ui'],resolve)
         },
         {
           path: 'rating',
-          component: Rating
+          component: resolve => require(['@/components/shop/rating/ui'],resolve)
         },
         {
           path: 'shop',
-          component: Shop
+          component: resolve => require(['@/components/shop/shop/ui'],resolve)
         }
       ]
     },

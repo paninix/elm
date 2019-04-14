@@ -1,10 +1,10 @@
 const Router = require('koa-router');
 const api = require('../api/');
+const formatDate = require('../middleware/formatDate');
 const router = new Router();
 
 router
 .post('/login',async(ctx)=>{
-	console.log(1111);
 	let user = ctx.request.body;
 	let userId;
 	//进行登录验证
@@ -56,7 +56,7 @@ router
 	let order = JSON.parse(ctx.query.order);
 	let account = 0;
 	//获取用户余额信息
-	await api.getUserInfo( 1 )
+	await api.getUserInfo()
 	.then(res=>{
 		account = res[0].account;
 	}).catch(err=>{
@@ -67,7 +67,6 @@ router
 		return;
 	}else{
 		account = account - order.price;
-		console.log(account);
 	}
 	//修改用户余额信息
 	await api.userAccountSub(account)

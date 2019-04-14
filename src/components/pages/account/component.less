@@ -1,0 +1,113 @@
+#account {
+    .account-back {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 20px;
+    }
+    .account-address {
+        padding: 20px 0px;
+        text-align: center;
+        div {
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: 200;
+        }
+        span {
+            font-size: 12px;
+            color: #00a0dc;
+        }
+    }
+    .account-food {
+        .account-food-shop {
+            padding: 10px;
+            overflow: hidden;
+            div {
+                float: left;
+                margin-right: 5px;
+                img {
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                }
+            }
+            span {
+                float: left;
+                font-size: 14px;
+                line-height: 24px;
+            }
+        }
+        ul {
+            border-top: 1px solid #ccc;
+            padding: 10px;
+            li {
+                overflow: hidden;
+                line-height: 50px;
+                border-bottom: 1px solid #ccc;
+                font-size: 14px;
+                img {
+                    float: left;
+                    width: 50px;
+                    height: 50px;
+                    margin-right: 10px;
+                }
+                span:nth-of-type(1) {
+                    float: left;
+                    width: 40%;
+                    font-weight: 300;
+                    font-size: 12px;
+                }
+                span:nth-of-type(2) {
+                    float: left;
+                    color: #00a0dc;
+                }
+                span:nth-of-type(3) {
+                    float: right;
+                    color: #f01414;
+                }
+            }
+            li:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+    .account-content {
+        div {
+            line-height: 40px;
+            overflow: hidden;
+            margin: 0px 18px;
+            border-bottom: 1px solid #ccc;
+            span:first-of-type {
+                font-size: 14px;
+                float: left;
+            }
+            span:last-child {
+                font-size: 12px;
+                float: right;
+                color: #93999f;
+            }
+        }
+    }
+    .account-pay {
+        position: fixed;
+        width: 100%;
+        bottom: 0px;
+        left: 0px;
+        font-size: 14px;
+        line-height: 48px;
+        span:first-of-type {
+            float: left;
+            padding-left: 5%;
+            width: 65%;
+            background-color: #000;
+            color: #fff;
+        }
+        span:last-child {
+            text-align: center;
+            font-weight: 600;
+            float: right;
+            width: 30%;
+            background-color: #e6a23c;
+        }
+    }
+}

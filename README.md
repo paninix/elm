@@ -5,6 +5,8 @@
 
 # [线上访问地址](http://www.xuguobin.club/elm/index.html)
 
+## @copy elm@2.1-dev开发版本
+
 注意：
 
  * 我的服务器内存有限，反应时间可能有些延迟。
@@ -14,14 +16,15 @@
 
 -------
 
-## 技术栈
+### 技术栈
+
 
  * 前端部分
 	vuejs，vuex，axios，element-ui，webpack
  * 后台部分
 	koa2，mysql
 
-## 安装和运行
+### 安装和运行
 
  * 后台部分
 	安装依赖
@@ -37,16 +40,18 @@
 
 写的不好，欢迎star和fork。
 
-## 项目更新
+### 项目更新
 
  * 第二次更新（2018 4月21日）
 		将axios操作抽离成单独的app.js文件
  * 第三次更新（2018 4月21日）
  		提交了后台代码
- * 第四次更新（2018 4月30日
-    优化了后台结构
+ * 第四次更新（2018 7月8日）
+    重构了前台结构（重大更新）
 
-## 项目结构
+### 项目结构
+
+<pre>
 
 ```
 ├── README.md           
@@ -64,8 +69,23 @@
 |   
 │
 ├── src                // 生产目录
-│   ├── api            // axios操作
-│   ├── components     // 组件 
+│   └── axios           // axios操作
+|         ├──base       // axios模板
+|         |    ├──base.js     //axios基类
+|         |    └──setting.js  //状态码
+|         └── user
+|               ├──cache.js     //请求函数
+|               └──config.js    //配置信息
+|
+|   ├── base           //vue模板
+│   ├── components     // 组件
+|   |     ├──common    //公共组件
+|   |     └──admin
+|   |          ├── ui.vue             // 输出组件
+|   |          ├── component.html     // template
+|   |          ├── component.js       // script
+|   |          └── component.less     // style
+|   |  
 │   ├── router         // 路由
 │   ├── store          // vuex状态管理器
 │	  ├── App.vue        // 首页
